@@ -49,11 +49,12 @@ before_action :find_heroine, only: [:show, :edit, :update, :destroy]
 
 
   private
-
+# callback for finding heroine's id number
   def find_heroine
     @heroine = Heroine.find(params[:id])
   end
 
+# strong params
   def heroine_params
     params.require(:heroine).permit(:name, :super_name, :power_id, :search)
   end
