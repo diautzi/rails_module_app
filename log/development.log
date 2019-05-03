@@ -1,0 +1,1096 @@
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/config/initializers/new_framework_defaults.rb:21)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/config/initializers/new_framework_defaults.rb:21)
+  [1m[35m (22.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (20.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (32.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateHeroines (20170725185425)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "heroines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "super_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170725185425"]]
+  [1m[35m (43.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePowers (20170725185638)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "powers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170725185638"]]
+  [1m[35m (10.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPowerReferenceToHeroines (20190503152347)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "heroines" ADD "power_id" integer[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_heroines_on_power_id" ON "heroines" ("power_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190503152347"]]
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-03 15:24:57.795677"], ["updated_at", "2019-05-03 15:24:57.795677"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_heroines_on_power_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_heroines_on_power_id' AND type='index'
+[0m
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/config/initializers/new_framework_defaults.rb:21)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mHeroine Load (0.5ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  [1m[36mPower Load (0.6ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.6ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "super strength"], ["description", "gives the wielder super-human strengths"], ["created_at", "2019-05-03 15:25:27.407906"], ["updated_at", "2019-05-03 15:25:27.407906"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (3.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "flight"], ["description", "gives the wielder the ability to fly through the skies at supersonic speed"], ["created_at", "2019-05-03 15:25:27.420876"], ["updated_at", "2019-05-03 15:25:27.420876"]]
+  [1m[35m (13.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "super human senses"], ["description", "allows the wielder to user her senses at a super-human level"], ["created_at", "2019-05-03 15:25:27.440128"], ["updated_at", "2019-05-03 15:25:27.440128"]]
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "powers" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "elasticity"], ["description", "can stretch the human body to extreme lengths"], ["created_at", "2019-05-03 15:25:27.450878"], ["updated_at", "2019-05-03 15:25:27.450878"]]
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[36mPower Load (0.6ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (24.3ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kamala Khan"], ["super_name", "Ms. Marvel"], ["created_at", "2019-05-03 15:25:27.588545"], ["updated_at", "2019-05-03 15:25:27.588545"], ["power_id", 1]]
+  [1m[35m (34.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (3.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Doreen Green"], ["super_name", "Squirrel Girl"], ["created_at", "2019-05-03 15:25:27.722285"], ["updated_at", "2019-05-03 15:25:27.722285"], ["power_id", 3]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gwen Stacy"], ["super_name", "Spider-Gwen"], ["created_at", "2019-05-03 15:25:27.731596"], ["updated_at", "2019-05-03 15:25:27.731596"], ["power_id", 3]]
+  [1m[35m (58.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Janet Van Dyne"], ["super_name", "The Wasp"], ["created_at", "2019-05-03 15:25:27.793905"], ["updated_at", "2019-05-03 15:25:27.793905"], ["power_id", 3]]
+  [1m[35m (15.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Wanda Maximoff"], ["super_name", "Scarlet Witch"], ["created_at", "2019-05-03 15:25:27.814395"], ["updated_at", "2019-05-03 15:25:27.814395"], ["power_id", 1]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Carol Danvers"], ["super_name", "Captain Marvel"], ["created_at", "2019-05-03 15:25:27.822785"], ["updated_at", "2019-05-03 15:25:27.822785"], ["power_id", 2]]
+  [1m[35m (12.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jean Grey"], ["super_name", "Dark Phoenix"], ["created_at", "2019-05-03 15:25:27.840250"], ["updated_at", "2019-05-03 15:25:27.840250"], ["power_id", 3]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ororo Munroe"], ["super_name", "Storm"], ["created_at", "2019-05-03 15:25:27.849928"], ["updated_at", "2019-05-03 15:25:27.849928"], ["power_id", 4]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kitty Pryde"], ["super_name", "Shadowcat"], ["created_at", "2019-05-03 15:25:27.861060"], ["updated_at", "2019-05-03 15:25:27.861060"], ["power_id", 4]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Elektra Natchios"], ["super_name", "Elektra"], ["created_at", "2019-05-03 15:25:27.872999"], ["updated_at", "2019-05-03 15:25:27.872999"], ["power_id", 4]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/config/initializers/new_framework_defaults.rb:21)
+  [1m[36mHeroine Load (5.5ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPower Load (9.1ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPower Load (3.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" ORDER BY "powers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mHeroine Load (0.8ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."power_id" = ? LIMIT ?[0m  [["power_id", 1], ["LIMIT", 11]]
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/config/initializers/new_framework_defaults.rb:21)
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 10:31:14 -0500
+  [1m[35m (8.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (0.7ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (601.2ms)
+Completed 500 Internal Server Error in 698ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `heroine_path' for #<#<Class:0x00007f97f1e2d908>:0x00007f97f1e4ece8>
+Did you mean?  heroines_path):
+    3: <ul>
+    4:   <% @heroines.each do |heroine| %>
+    5:     <li>
+    6:       <%= link_to heroine.super_name, heroine_path(@heroine) %>
+    7:     </li>
+    8:     <br>
+    9:   <% end %>
+  
+app/views/heroines/index.html.erb:6:in `block in _app_views_heroines_index_html_erb__3717151980662545200_70145287485920'
+app/views/heroines/index.html.erb:4:in `_app_views_heroines_index_html_erb__3717151980662545200_70145287485920'
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 10:32:33 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (7.9ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (516.2ms)
+Completed 500 Internal Server Error in 529ms (ActiveRecord: 8.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `heroine_path' for #<#<Class:0x00007f97f1e2d908>:0x00007f97f1f62030>
+Did you mean?  heroines_path):
+    3: <ul>
+    4:   <% @heroines.each do |heroine| %>
+    5:     <li>
+    6:       <%= link_to heroine.super_name, heroine_path(heroine) %>
+    7:     </li>
+    8:     <br>
+    9:   <% end %>
+  
+app/views/heroines/index.html.erb:6:in `block in _app_views_heroines_index_html_erb__3717151980662545200_70145288116560'
+app/views/heroines/index.html.erb:4:in `_app_views_heroines_index_html_erb__3717151980662545200_70145288116560'
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 10:33:13 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (41.9ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (71.3ms)
+Completed 200 OK in 10011ms (Views: 9994.7ms | ActiveRecord: 44.3ms)
+
+
+Started GET "/heroines/1" for 127.0.0.1 at 2019-05-03 10:33:38 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHeroine Load (0.6ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 137ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionController::UnknownFormat (HeroinesController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.6) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 10:37:23 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (23.3ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (69.8ms)
+Completed 200 OK in 616ms (Views: 563.7ms | ActiveRecord: 26.5ms)
+
+
+Started GET "/heroines.1" for 127.0.0.1 at 2019-05-03 10:37:25 -0500
+Processing by HeroinesController#index as 
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (0.3ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 119ms (Views: 106.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/heroines.1" for 127.0.0.1 at 2019-05-03 10:37:30 -0500
+Processing by HeroinesController#index as 
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (0.3ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 106ms (Views: 99.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 10:38:02 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (0.4ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 463ms (Views: 457.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/heroines/1" for 127.0.0.1 at 2019-05-03 10:38:05 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHeroine Load (0.3ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  [1m[36mPower Load (22.8ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered heroines/show.html.erb within layouts/application (91.4ms)
+Completed 200 OK in 161ms (Views: 112.1ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/heroines/1" for 127.0.0.1 at 2019-05-03 10:39:04 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHeroine Load (28.9ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPower Load (1.0ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 318ms (Views: 183.1ms | ActiveRecord: 33.4ms)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2019-05-03 10:39:07 -0500
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for PowersController):
+  
+actionpack (5.1.6) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/powers" for 127.0.0.1 at 2019-05-03 10:39:58 -0500
+Processing by PowersController#index as HTML
+  Rendering powers/index.html.erb within layouts/application
+  [1m[36mPower Load (0.8ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered powers/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 423ms (Views: 390.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/powers" for 127.0.0.1 at 2019-05-03 10:41:49 -0500
+Processing by PowersController#index as HTML
+  Rendering powers/index.html.erb within layouts/application
+  [1m[36mPower Load (0.6ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered powers/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 292ms (Views: 265.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/powers" for 127.0.0.1 at 2019-05-03 10:42:23 -0500
+Processing by PowersController#index as HTML
+  Rendering powers/index.html.erb within layouts/application
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered powers/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 245ms (Views: 238.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2019-05-03 10:42:25 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1>Superpower:</h1>
+    2: <h2>Power name: <%= @power.name %></h2>
+    3: <h2>Power description: <%= @power.description %></h2>
+  
+app/views/powers/show.html.erb:2:in `_app_views_powers_show_html_erb__4211540629742981943_70145324051440'
+Started GET "/powers/1" for 127.0.0.1 at 2019-05-03 10:43:33 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (29.0ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 236ms (Views: 172.3ms | ActiveRecord: 30.6ms)
+
+
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 10:50:16 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (27.8ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (63.7ms)
+Completed 200 OK in 688ms (Views: 652.9ms | ActiveRecord: 30.0ms)
+
+
+Started GET "/heroines/1" for 127.0.0.1 at 2019-05-03 10:50:19 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHeroine Load (0.3ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPower Load (24.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 109ms (Views: 49.9ms | ActiveRecord: 25.8ms)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2019-05-03 10:50:20 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 81ms (Views: 74.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 10:50:27 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (0.6ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 99ms (Views: 95.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heroines/new" for 127.0.0.1 at 2019-05-03 10:50:30 -0500
+Processing by HeroinesController#new as HTML
+  Rendering heroines/new.html.erb within layouts/application
+  Rendered heroines/new.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/app/views/heroines/new.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+....append=( form_for(@heroine) fo |f|  );@output_buffer.safe_a...
+...                             ^~
+/Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/app/views/heroines/new.html.erb:7: syntax error, unexpected ')'
+...=( form_for(@heroine) fo |f|  );@output_buffer.safe_append='
+...                              ^
+/Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/app/views/heroines/new.html.erb:16: syntax error, unexpected end, expecting ')'
+'.freeze; end 
+          ^~~
+/Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/app/views/heroines/new.html.erb:18: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/app/views/heroines/new.html.erb:20: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/heroines/new.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/heroines/new.html.erb:7: syntax error, unexpected ')'
+app/views/heroines/new.html.erb:16: syntax error, unexpected end, expecting ')'
+app/views/heroines/new.html.erb:18: syntax error, unexpected ensure, expecting ')'
+app/views/heroines/new.html.erb:20: syntax error, unexpected end, expecting ')'
+Started GET "/heroines/new" for 127.0.0.1 at 2019-05-03 10:51:25 -0500
+Processing by HeroinesController#new as HTML
+  Rendering heroines/new.html.erb within layouts/application
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered heroines/new.html.erb within layouts/application (253.3ms)
+Completed 200 OK in 357ms (Views: 352.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/heroines" for 127.0.0.1 at 2019-05-03 10:51:44 -0500
+Processing by HeroinesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"04+kO06WBcKcaavZ7yzV2BlHe3DRMYyjw5JPzg5v4IyXKmu0uDSUg0+IAfkNADM2le1q4NTMmqcZQBQg/gryUw==", "heroine"=>{"name"=>"Diana", "super_name"=>"Super Dia", "power_id"=>"3"}, "commit"=>"Create Heroine"}
+  [1m[36mHeroine Load (0.5ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 6ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Heroine with 'id'=):
+  
+app/controllers/heroines_controller.rb:34:in `find_heroine'
+Started POST "/heroines" for 127.0.0.1 at 2019-05-03 10:52:53 -0500
+Processing by HeroinesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"04+kO06WBcKcaavZ7yzV2BlHe3DRMYyjw5JPzg5v4IyXKmu0uDSUg0+IAfkNADM2le1q4NTMmqcZQBQg/gryUw==", "heroine"=>{"name"=>"Diana", "super_name"=>"Super Dia", "power_id"=>"3"}, "commit"=>"Create Heroine"}
+  [1m[36mHeroine Load (0.2ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 40ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Heroine with 'id'=):
+  
+app/controllers/heroines_controller.rb:34:in `find_heroine'
+Started POST "/heroines" for 127.0.0.1 at 2019-05-03 10:53:20 -0500
+Processing by HeroinesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"04+kO06WBcKcaavZ7yzV2BlHe3DRMYyjw5JPzg5v4IyXKmu0uDSUg0+IAfkNADM2le1q4NTMmqcZQBQg/gryUw==", "heroine"=>{"name"=>"Diana", "super_name"=>"Super Dia", "power_id"=>"3"}, "commit"=>"Create Heroine"}
+  [1m[36mPower Load (14.7ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Diana"], ["super_name", "Super Dia"], ["created_at", "2019-05-03 15:53:20.608336"], ["updated_at", "2019-05-03 15:53:20.608336"], ["power_id", 3]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/heroines/11
+Completed 302 Found in 99ms (ActiveRecord: 26.4ms)
+
+
+Started GET "/heroines/11" for 127.0.0.1 at 2019-05-03 10:53:20 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mHeroine Load (0.4ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 322ms (Views: 299.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heroines/new" for 127.0.0.1 at 2019-05-03 10:55:19 -0500
+Processing by HeroinesController#new as HTML
+  Rendering heroines/new.html.erb within layouts/application
+  [1m[36mPower Load (46.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered heroines/new.html.erb within layouts/application (87.7ms)
+Completed 200 OK in 617ms (Views: 467.7ms | ActiveRecord: 61.4ms)
+
+
+Started GET "/heroines/new" for 127.0.0.1 at 2019-05-03 10:55:43 -0500
+Processing by HeroinesController#new as HTML
+  Rendering heroines/new.html.erb within layouts/application
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered heroines/new.html.erb within layouts/application (136.2ms)
+Completed 200 OK in 505ms (Views: 501.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/heroines" for 127.0.0.1 at 2019-05-03 10:55:55 -0500
+Processing by HeroinesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jy+BjD9gRNcQcw6iSCFVohoLEkarS3kcgVv6uRJPVPfLik4DycLVlsOSpIKqDbNMlqED1q62bxhbiaFX4ipGKA==", "heroine"=>{"name"=>"Sonia", "super_name"=>"Soniq", "power_id"=>"4"}, "commit"=>"Create Heroine"}
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mHeroine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "heroines" WHERE "heroines"."super_name" = ? LIMIT ?[0m  [["super_name", "Soniq"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE Heroine Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "heroines" WHERE "heroines"."super_name" = ? LIMIT ?[0m  [["super_name", "Soniq"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Sonia"], ["super_name", "Soniq"], ["created_at", "2019-05-03 15:55:55.948061"], ["updated_at", "2019-05-03 15:55:55.948061"], ["power_id", 4]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/heroines/12
+Completed 302 Found in 361ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/heroines/12" for 127.0.0.1 at 2019-05-03 10:55:55 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mHeroine Load (0.3ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 387ms (Views: 376.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/powers/4" for 127.0.0.1 at 2019-05-03 10:55:57 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 43ms (Views: 38.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 10:56:14 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (0.4ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 258ms (Views: 255.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/heroines/2" for 127.0.0.1 at 2019-05-03 10:56:16 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHeroine Load (0.4ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 113ms (Views: 105.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/powers/3" for 127.0.0.1 at 2019-05-03 10:56:28 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPower Load (0.7ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 338ms (Views: 322.1ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mHeroine Load (2.8ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 11:04:13 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  Rendered heroines/index.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/app/views/heroines/index.html.erb:23: syntax error, unexpected end-of-input, expecting end):
+  
+app/views/heroines/index.html.erb:23: syntax error, unexpected end-of-input, expecting end
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 11:04:29 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (1.1ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 177ms (Views: 172.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/heroines/4" for 127.0.0.1 at 2019-05-03 11:04:32 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHeroine Load (1.5ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 47ms (Views: 34.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/heroines/4" for 127.0.0.1 at 2019-05-03 11:06:55 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHeroine Load (0.3ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 273ms (Views: 223.4ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 11:06:58 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (0.3ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 116ms (Views: 113.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/heroines/1" for 127.0.0.1 at 2019-05-03 11:07:01 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHeroine Load (0.2ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 59ms (Views: 54.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2019-05-03 11:07:02 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (3.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 50ms (Views: 38.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 11:07:12 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (0.4ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 51ms (Views: 49.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/heroines.new" for 127.0.0.1 at 2019-05-03 11:07:14 -0500
+Processing by HeroinesController#index as 
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (0.4ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 66ms (Views: 53.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/heroines/2" for 127.0.0.1 at 2019-05-03 11:07:15 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHeroine Load (0.2ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 38ms (Views: 33.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/heroines/new" for 127.0.0.1 at 2019-05-03 11:07:20 -0500
+Processing by HeroinesController#new as HTML
+  Rendering heroines/new.html.erb within layouts/application
+  [1m[36mPower Load (0.5ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered heroines/new.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 117ms (Views: 113.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/heroines" for 127.0.0.1 at 2019-05-03 11:07:36 -0500
+Processing by HeroinesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qDZXsBKgFXEw50h9wXoGXITIre10tqYCLGb+g8r1aF3sk5g/5AKEMOMG4l0jVuCyCGK8fXFLsAb2tKVtOpB6gg==", "heroine"=>{"name"=>"Alexa", "super_name"=>"Super Dia", "power_id"=>"1"}, "commit"=>"Create Heroine"}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHeroine Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "heroines" WHERE "heroines"."super_name" = ? LIMIT ?[0m  [["super_name", "Super Dia"], ["LIMIT", 1]]
+  Rendering heroines/new.html.erb within layouts/application
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered heroines/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 49ms (Views: 38.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/heroines" for 127.0.0.1 at 2019-05-03 11:07:51 -0500
+Processing by HeroinesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6b2bW4Qo45sledpP4zEhKyHdyAMvOICYisLejHcrLRKtGFTUcopy2vaYcG8BHcfFrXfZkyrFlpxQEIVih04/zQ==", "heroine"=>{"name"=>"Alexa", "super_name"=>"Super Priness Alexa", "power_id"=>"3"}, "commit"=>"Create Heroine"}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mHeroine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "heroines" WHERE "heroines"."super_name" = ? LIMIT ?[0m  [["super_name", "Super Priness Alexa"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE Heroine Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "heroines" WHERE "heroines"."super_name" = ? LIMIT ?[0m  [["super_name", "Super Priness Alexa"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "heroines" ("name", "super_name", "created_at", "updated_at", "power_id") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Alexa"], ["super_name", "Super Priness Alexa"], ["created_at", "2019-05-03 16:07:51.829803"], ["updated_at", "2019-05-03 16:07:51.829803"], ["power_id", 3]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/heroines/13
+Completed 302 Found in 15ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/heroines/13" for 127.0.0.1 at 2019-05-03 11:07:51 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mHeroine Load (0.2ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 37ms (Views: 33.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 11:09:20 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (3.3ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 1430ms (Views: 1407.6ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/heroines/1" for 127.0.0.1 at 2019-05-03 11:09:56 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHeroine Load (0.4ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 484ms (Views: 471.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2019-05-03 11:10:04 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (1.1ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 291ms (Views: 271.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/heroines/new" for 127.0.0.1 at 2019-05-03 11:10:18 -0500
+Processing by HeroinesController#new as HTML
+  Rendering heroines/new.html.erb within layouts/application
+  [1m[36mPower Load (0.9ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered heroines/new.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 326ms (Views: 320.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 11:10:42 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (0.6ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 142ms (Views: 139.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/heroines/1" for 127.0.0.1 at 2019-05-03 11:10:45 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHeroine Load (0.4ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 83ms (Views: 67.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2019-05-03 11:10:51 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 65ms (Views: 61.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/heroines/new" for 127.0.0.1 at 2019-05-03 11:11:05 -0500
+Processing by HeroinesController#new as HTML
+  Rendering heroines/new.html.erb within layouts/application
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered heroines/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 227ms (Views: 224.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/heroines" for 127.0.0.1 at 2019-05-03 11:11:14 -0500
+Processing by HeroinesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JuCDD6WCNxp0imVArKmIAjTKE2PDGkkYAxC9IgaaFKpiRUyAUyCmW6drz2BOhW7suGAC88bnXxzZwubM9v8GdQ==", "heroine"=>{"name"=>"Sonia", "super_name"=>"Soniq", "power_id"=>"1"}, "commit"=>"Create Heroine"}
+  [1m[36mPower Load (0.8ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mHeroine Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM "heroines" WHERE "heroines"."super_name" = ? LIMIT ?[0m  [["super_name", "Soniq"], ["LIMIT", 1]]
+  Rendering heroines/new.html.erb within layouts/application
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered heroines/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 395ms (Views: 352.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 11:17:38 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (4.8ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 494ms (Views: 470.4ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/search?utf8=%E2%9C%93&heroine=&commit=Search" for 127.0.0.1 at 2019-05-03 11:17:41 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/search?utf8=%E2%9C%93&heroine=super+power&commit=Search" for 127.0.0.1 at 2019-05-03 11:18:36 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/search?utf8=%E2%9C%93&heroine=super+power&commit=Search" for 127.0.0.1 at 2019-05-03 11:18:53 -0500
+  
+SyntaxError (/Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/config/routes.rb:2: syntax error, unexpected tSYMBEG
+...powers, only: [:index, :show. :search]
+...                              ^
+/Users/dia_utzi/Documents/Development/day-25/module-2-code-challenge-round-1---chicago040119-rails-first-round-code-challenge-1556895767/config/routes.rb:4: syntax error, unexpected end, expecting end-of-input):
+  
+config/routes.rb:2: syntax error, unexpected tSYMBEG
+config/routes.rb:4: syntax error, unexpected end, expecting end-of-input
+Started GET "/search?utf8=%E2%9C%93&heroine=super+power&commit=Search" for 127.0.0.1 at 2019-05-03 11:19:15 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/search?utf8=%E2%9C%93&heroine=super+power&commit=Search" for 127.0.0.1 at 2019-05-03 11:20:05 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/search?utf8=%E2%9C%93&heroine=super+power&commit=Search" for 127.0.0.1 at 2019-05-03 11:20:16 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/search?utf8=%E2%9C%93&heroine=super+power&commit=Search" for 127.0.0.1 at 2019-05-03 11:20:59 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 11:21:12 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (50.3ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (1054.4ms)
+Completed 200 OK in 11384ms (Views: 4627.2ms | ActiveRecord: 964.6ms)
+
+
+Started GET "/powers?utf8=%E2%9C%93&heroine=&commit=Search" for 127.0.0.1 at 2019-05-03 11:21:37 -0500
+Processing by PowersController#index as HTML
+  Parameters: {"utf8"=>"✓", "heroine"=>"", "commit"=>"Search"}
+  Rendering powers/index.html.erb within layouts/application
+  [1m[36mPower Load (26.9ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered powers/index.html.erb within layouts/application (62.1ms)
+Completed 200 OK in 6356ms (Views: 4684.0ms | ActiveRecord: 37.6ms)
+
+
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 11:29:48 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (1.8ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (35.3ms)
+Completed 200 OK in 709ms (Views: 673.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/heroines/2" for 127.0.0.1 at 2019-05-03 11:30:07 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHeroine Load (0.6ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPower Load (0.6ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 1520ms (Views: 1266.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/powers/3" for 127.0.0.1 at 2019-05-03 11:30:11 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 116ms (Views: 110.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/powers" for 127.0.0.1 at 2019-05-03 11:30:20 -0500
+Processing by PowersController#index as HTML
+  Rendering powers/index.html.erb within layouts/application
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  Rendered powers/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 64ms (Views: 61.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2019-05-03 11:30:24 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 74ms (Views: 71.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2019-05-03 11:31:54 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 393ms (Views: 389.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/heroines" for 127.0.0.1 at 2019-05-03 11:32:02 -0500
+Processing by HeroinesController#index as HTML
+  Rendering heroines/index.html.erb within layouts/application
+  [1m[36mHeroine Load (0.3ms)[0m  [1m[34mSELECT "heroines".* FROM "heroines"[0m
+  Rendered heroines/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 411ms (Views: 407.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/heroines/2" for 127.0.0.1 at 2019-05-03 11:32:04 -0500
+Processing by HeroinesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHeroine Load (0.3ms)[0m  [1m[34mSELECT  "heroines".* FROM "heroines" WHERE "heroines"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering heroines/show.html.erb within layouts/application
+  Rendered heroines/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 49ms (Views: 39.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/powers/3" for 127.0.0.1 at 2019-05-03 11:32:05 -0500
+Processing by PowersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT  "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering powers/show.html.erb within layouts/application
+  Rendered powers/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 51ms (Views: 48.6ms | ActiveRecord: 0.2ms)
+
+
